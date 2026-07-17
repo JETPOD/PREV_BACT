@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Serious game de prévention des bactériémies nosocomiales — NutriCellScience EOH/CLIN.">
+<title>Bactério Challenge — NutriCellScience</title>
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ============= HEADER ============= -->
+<header class="site-header">
+  <div class="brand">
+    <svg class="brand-logo" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true">
+      <circle cx="20" cy="20" r="18" fill="none" stroke="currentColor" stroke-width="2"/>
+      <path d="M12 20 L18 26 L28 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="brand-text">
+      <div class="brand-name">Bactério Challenge</div>
+      <div class="brand-tag">NutriCellScience · EOH / CLIN</div>
+    </div>
+  </div>
+  <button class="btn-ghost" id="btn-rules" aria-label="Consulter le règlement">Règlement</button>
+</header>
+
+<main class="app">
+
+  <!-- ============= SCREEN 1 — HOME ============= -->
+  <section id="screen-home" class="screen active">
+    <div class="hero">
+      <div class="hero-eyebrow">Serious game · 15 minutes</div>
+      <h1>Ensemble, sous la barre des 30 %.</h1>
+      <p class="hero-lead">Prévenir les bactériémies nosocomiales — un scénario, une décision, un geste. Testez vos réflexes et emportez les bons repères.</p>
+      <div class="hero-stats">
+        <div class="stat"><div class="stat-val">239</div><div class="stat-lbl">épisodes/an</div></div>
+        <div class="stat"><div class="stat-val">≥ 95 %</div><div class="stat-lbl">traçabilité cible 6 mois</div></div>
+        <div class="stat"><div class="stat-val">−30 %</div><div class="stat-lbl">objectif 12 mois</div></div>
+      </div>
+    </div>
+
+    <h2 class="section-title">Choisissez votre parcours</h2>
+
+    <div class="tracks">
+      <button class="track-card" data-track="ide">
+        <div class="track-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2v6M6 6l4 4M18 6l-4 4M4 22h16M6 22V12h12v10"/>
+          </svg>
+        </div>
+        <div class="track-title">IDE / IADE</div>
+        <div class="track-sub">Le geste juste</div>
+        <div class="track-desc">Préparation cutanée, prélèvement d'hémoculture, manipulation de ligne, traçabilité voie.</div>
+        <div class="track-meta">12 questions · 12 min</div>
+      </button>
+
+      <button class="track-card" data-track="medecin">
+        <div class="track-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+          </svg>
+        </div>
+        <div class="track-title">Médecin prescripteur</div>
+        <div class="track-sub">La bonne décision</div>
+        <div class="track-desc">Indication du dispositif, choix du cathéter, retrait précoce, sondage urinaire.</div>
+        <div class="track-meta">10 questions · 10 min</div>
+      </button>
+
+      <button class="track-card" data-track="nouveau">
+        <div class="track-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18"/>
+            <circle cx="12" cy="12" r="9"/>
+          </svg>
+        </div>
+        <div class="track-title">Nouveaux arrivants</div>
+        <div class="track-sub">Les fondamentaux</div>
+        <div class="track-desc">Hygiène des mains, culture de sécurité, chaîne de traçabilité, à qui s'adresser.</div>
+        <div class="track-meta">10 questions · 10 min</div>
+      </button>
+    </div>
+
+    <div class="context-box">
+      <strong>Contexte.</strong> Ce serious game s'inscrit dans le plan d'action EOH 2026-2027 visant une réduction de 30 % des bactériémies nosocomiales à 12 mois. Les 3 unités prioritaires identifiées sont : HB Soins de Surveillance Continue, DI Soins de Surveillance Continue, HB Médecine Polyvalente 2. Les réponses sont fondées sur les référentiels SF2H, SPIADI et PROPIAS.
+    </div>
+  </section>
+
+  <!-- ============= SCREEN 2 — GAME ============= -->
+  <section id="screen-game" class="screen">
+    <div class="game-topbar">
+      <div class="progress-wrap">
+        <div class="progress-label">Question <span id="q-current">1</span> / <span id="q-total">12</span></div>
+        <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      </div>
+      <div class="score-badge">
+        <span class="score-lbl">Score</span>
+        <span class="score-val" id="score-val">0</span>
+        <span class="score-streak" id="score-streak" hidden></span>
+      </div>
+    </div>
+
+    <div class="scenario-card">
+      <div class="scenario-tag" id="scenario-tag">Situation clinique</div>
+      <p class="scenario-text" id="scenario-text">—</p>
+    </div>
+
+    <h2 class="question-text" id="question-text">—</h2>
+
+    <div class="options" id="options-container"></div>
+
+    <div class="feedback" id="feedback" hidden>
+      <div class="feedback-icon" id="feedback-icon" aria-hidden="true"></div>
+      <div class="feedback-body">
+        <div class="feedback-title" id="feedback-title">—</div>
+        <div class="feedback-text" id="feedback-text">—</div>
+        <div class="feedback-source" id="feedback-source"></div>
+      </div>
+    </div>
+
+    <div class="game-actions">
+      <button class="btn-ghost" id="btn-quit">Quitter</button>
+      <button class="btn-primary" id="btn-next" hidden>Question suivante →</button>
+    </div>
+  </section>
+
+  <!-- ============= SCREEN 3 — RESULTS ============= -->
+  <section id="screen-results" class="screen">
+    <div class="result-hero">
+      <div class="trophy" id="trophy" aria-hidden="true">🎯</div>
+      <h1 id="result-level">—</h1>
+      <div class="score-final"><span id="score-final">0</span> <span class="score-max">/ <span id="score-max">0</span></span></div>
+      <div class="score-pct" id="score-pct">—</div>
+    </div>
+
+    <h2 class="section-title">Votre bilan par thématique</h2>
+    <div class="theme-bars" id="theme-bars"></div>
+
+    <div class="takeaways">
+      <h2 class="section-title">Ce que vous emportez</h2>
+      <ol id="takeaway-list">
+        <li>—</li>
+      </ol>
+    </div>
+
+    <div class="result-actions">
+      <button class="btn-ghost" id="btn-replay">Rejouer ce parcours</button>
+      <button class="btn-ghost" id="btn-home">Autre parcours</button>
+      <button class="btn-primary" id="btn-attestation">Télécharger mon attestation</button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  NutriCellScience — Équipe Opérationnelle d'Hygiène · Prototype pédagogique v1.0 — juillet 2026
+</footer>
+
+<!-- ============= DIALOG RULES ============= -->
+<dialog id="dlg-rules" class="dlg">
+  <button class="dlg-close" data-close-dlg aria-label="Fermer">✕</button>
+  <h2>Règlement du jeu</h2>
+  <ul>
+    <li>Chaque parcours contient entre 10 et 12 questions à choix unique.</li>
+    <li>Vous gagnez <strong>+10 points</strong> par bonne réponse, <strong>+5 points bonus</strong> si vous répondez juste dès la première tentative.</li>
+    <li>Une explication et une source vous sont données après chaque réponse.</li>
+    <li>À la fin, un bilan par thématique met en évidence les points à retravailler.</li>
+    <li>Une attestation nominative imprimable est proposée en fin de parcours.</li>
+    <li>Approche <strong>non nominative et bienveillante</strong> — aucun score n'est transmis à des tiers.</li>
+  </ul>
+  <div class="dlg-actions">
+    <button class="btn-primary" data-close-dlg>J'ai compris</button>
+  </div>
+</dialog>
+
+<!-- ============= ATTESTATION MODAL ============= -->
+<dialog id="dlg-attestation" class="dlg attestation-dlg">
+  <button class="dlg-close" data-close-dlg aria-label="Fermer">✕</button>
+  <div class="attestation-form no-print">
+    <h2>Attestation de participation</h2>
+    <label for="att-name">Votre nom (optionnel)</label>
+    <input type="text" id="att-name" placeholder="Ex. Julie Martin, IDE" maxlength="80">
+    <div class="dlg-actions">
+      <button class="btn-ghost" data-close-dlg>Annuler</button>
+      <button class="btn-primary" id="btn-print-attestation">Imprimer / PDF</button>
+    </div>
+  </div>
+
+  <div class="attestation-doc" id="attestation-doc">
+    <div class="att-header">
+      <svg viewBox="0 0 40 40" width="48" height="48" aria-hidden="true">
+        <circle cx="20" cy="20" r="18" fill="none" stroke="#01696F" stroke-width="2"/>
+        <path d="M12 20 L18 26 L28 14" fill="none" stroke="#01696F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div>
+        <div class="att-brand">NutriCellScience</div>
+        <div class="att-sub">Équipe Opérationnelle d'Hygiène · CLIN</div>
+      </div>
+    </div>
+    <h1 class="att-title">Attestation de participation</h1>
+    <p class="att-lead">Il est attesté que</p>
+    <p class="att-name" id="att-doc-name">—</p>
+    <p class="att-body">
+      a suivi avec succès le module de serious game
+      <strong>« Bactério Challenge — <span id="att-track">—</span> »</strong>
+      dans le cadre du plan d'action de réduction de 30 % des bactériémies nosocomiales.
+    </p>
+    <div class="att-score-block">
+      <div><span class="att-lbl">Score</span><br><span class="att-big" id="att-score">—</span></div>
+      <div><span class="att-lbl">Niveau</span><br><span class="att-big" id="att-level">—</span></div>
+      <div><span class="att-lbl">Date</span><br><span class="att-big" id="att-date">—</span></div>
+    </div>
+    <p class="att-signature">Fait à Lille · Signature EOH / CLIN</p>
+  </div>
+</dialog>
+
+<script src="game.js"></script>
+</body>
+</html>
