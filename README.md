@@ -56,14 +56,14 @@ Aucun backend, aucune base de données, aucun cookie, aucun `localStorage` — 1
 ```
 PREV_BACT/
 ├── index.html      # Structure SPA (home / jeu / résultats) + dialogs
-├── styles.css      # Charte teal NutriCellScience + print stylesheet A4
+├── styles.css      # Charte teal + print stylesheet A4
 ├── game.js         # Logique + banque des 32 questions sourcées
 └── README.md
 ```
 
 ## 🎨 Charte graphique
 
-Palette **NutriCellScience** teal — `#01696F` primary / `#0C4E54` foncé / `#E6F0F0` clair / `#F7F6F2` crème.
+Palette **teal** — `#01696F` primary / `#0C4E54` foncé / `#E6F0F0` clair / `#F7F6F2` crème.
 Typographie **General Sans** (Fontshare) avec fallback système.
 
 ## 📚 Sources scientifiques mobilisées
@@ -84,7 +84,7 @@ Typographie **General Sans** (Fontshare) avec fallback système.
 ## 📝 Licence
 
 Ce prototype est mis à disposition sous licence [Creative Commons BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.fr).
-Réutilisation autorisée à fins pédagogiques non commerciales avec attribution NutriCellScience EOH/CLIN.
+Réutilisation autorisée à fins pédagogiques non commerciales avec attribution EOH/CLIN.
 
 ## 🤝 Contribution
 
@@ -92,4 +92,4 @@ Suggestions bienvenues via **Issues** : ajout de questions, correction de source
 
 ---
 
-_Prototype v1.0 — juillet 2026 · Dr Jean-Etienne Podik · EOH / CLIN NutriCellScience_
+_Prototype v1.0 — juillet 2026 · Dr Jean-Etienne Podik · EOH / CLIN_

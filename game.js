@@ -1,6 +1,6 @@
 /* ============================================================
    Bactério Challenge — logique de jeu
-   NutriCellScience EOH/CLIN — juillet 2026
+   EOH / CLIN — juillet 2026
    ============================================================ */
 
 // =============== BANQUE DE QUESTIONS ===============
