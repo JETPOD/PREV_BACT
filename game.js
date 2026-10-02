@@ -278,7 +278,7 @@ const QUESTIONS = {
         question: "Quelle démarche organisationnelle est recommandée ?",
         options: [
           "Recherche du responsable du geste",
-          "Analyse collective non nominative type Badicause",
+          "Analyse collective non nominative",
           "Aucune démarche systématique"
         ],
         correct: 1,
