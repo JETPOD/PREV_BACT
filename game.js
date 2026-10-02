@@ -382,15 +382,6 @@ const QUESTIONS = {
         source: "Protocole EOH · Audit flash 48 h"
       },
       {
-        theme: "Objectifs",
-        scenario: "Vous entendez parler d'un objectif institutionnel sur la traçabilité de la voie de prélèvement.",
-        question: "Quelle est la cible à 6 mois pour l'établissement ?",
-        options: ["70 %", "85 %", "≥ 95 %"],
-        correct: 2,
-        explanation: "L'objectif est ≥ 95 % de traçabilité de la voie de prélèvement à 6 mois. C'est la condition pour mesurer avec fiabilité la baisse des bactériémies nosocomiales et éclairer les actions ciblées.",
-        source: "Plan d'action EOH 2026-2027"
-      },
-      {
         theme: "Sondage urinaire",
         scenario: "Un patient nouvellement admis vous demande s'il peut être sondé « par confort » car il a du mal à se lever.",
         question: "La règle par défaut est :",
