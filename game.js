@@ -208,7 +208,7 @@ const QUESTIONS = {
       },
       {
         theme: "Réévaluation",
-        scenario: "Vous êtes en staff médical du matin dans l'unité de surveillance continue.",
+        scenario: "Vous êtes en staff médical du matin dans l'unité de soins intensifs.",
         question: "L'indication de chaque dispositif invasif (CVC, sonde urinaire, PICC…) doit être réévaluée :",
         options: [
           "À chaque changement de senior",
