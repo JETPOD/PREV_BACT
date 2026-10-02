@@ -16,7 +16,7 @@
 |---|---|---|---|
 | **Le geste juste** | IDE / IADE de terrain | ~12 min | 12 |
 | **La bonne décision** | Médecins prescripteurs | ~10 min | 10 |
-| **Les fondamentaux** | Nouveaux arrivants (accueil, tutorat) | ~10 min | 10 |
+| **Les fondamentaux** | Nouveaux arrivants (accueil, tutorat) | ~9 min | 9 |
 
 Chaque question s'appuie sur un **scénario clinique**, propose 3 à 4 options, puis délivre une **explication sourcée** (SF2H, SPIADI, PROPIAS, HAS).
 
