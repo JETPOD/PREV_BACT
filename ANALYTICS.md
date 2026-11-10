@@ -8,6 +8,8 @@ Tous les noms commencent par **BC** pour ne pas se mélanger avec les objectifs 
 
 Dans Plausible, ouvrir le site **jetpod.github.io**, puis **Settings → Goals → Add goal → Custom event**. Créer les 54 objectifs du fichier [GOALS.txt](GOALS.txt), avec les noms exacts (accents, espaces et zéros initiaux compris).
 
+Pour les ajouter automatiquement, utiliser le script [tools/plausible-goals](tools/plausible-goals/README.md) : il ouvre Plausible dans Chrome, vous vous connectez, puis il crée les objectifs manquants.
+
 Les événements ne sont pas rétroactifs : créer les objectifs avant de diffuser le jeu ([documentation Plausible](https://plausible.io/docs/custom-event-goals)).
 
 ### Bloc 1 · Fréquentation (11 objectifs, toujours actifs)

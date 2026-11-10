@@ -68,6 +68,7 @@ PREV_BACT/
 ├── ANALYTICS.md    # Configuration Plausible et lecture des indicateurs
 ├── GOALS.txt       # 54 objectifs à créer dans Plausible
 ├── test-analytics.cjs
+├── tools/plausible-goals/  # Script d'ajout automatique des objectifs
 └── README.md
 ```
 

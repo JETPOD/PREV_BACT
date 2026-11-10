@@ -1,0 +1,13 @@
+{
+  "name": "bc-plausible-goals",
+  "private": true,
+  "type": "module",
+  "description": "Ajoute les objectifs Plausible de Bactério Challenge (GOALS.txt)",
+  "scripts": {
+    "setup": "npm install && npx playwright install chromium",
+    "goals": "node add-goals.mjs",
+    "test-un": "node add-goals.mjs --limit 1",
+    "dry-run": "node add-goals.mjs --dry-run"
+  },
+  "dependencies": { "playwright": "^1.50.0" }
+}
