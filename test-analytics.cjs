@@ -1,0 +1,23 @@
+// Test local du schéma Plausible de Bactério Challenge (aucune requête réseau).
+const fs = require("fs"); const vm = require("vm"); const assert = require("assert");
+const calls = [];
+const ctx = { window: { plausible: (...a) => calls.push(a[0]) }, location: { origin: "https://jetpod.github.io", pathname: "/PREV_BACT/" } };
+vm.createContext(ctx); vm.runInContext(fs.readFileSync(__dirname + "/analytics.js", "utf8"), ctx);
+const A = ctx.window.bcAnalytics;
+const goals = fs.readFileSync(__dirname + "/GOALS.txt", "utf8").trim().split("\n");
+assert.strictEqual(goals.length, 54);
+assert.strictEqual(new Set(goals).size, 54);
+for (const g of goals) assert.ok(A.base.test(g) || A.teaching.test(g), "non autorisé : " + g);
+for (const bad of ["BC IDE Q13 à revoir", "BC IDE niveau 87 %", "Jeu démarré", "BC Julie Martin"]) assert.ok(!A.base.test(bad) && !A.teaching.test(bad), bad);
+const p = A.transformRequest({ n: "BC IDE démarré", u: "https://jetpod.github.io/PREV_BACT/?nom=x", r: "https://intranet", p: { a: 1 } });
+assert.strictEqual(p.u, "https://jetpod.github.io/PREV_BACT/"); assert.strictEqual(p.r, null); assert.ok(!("p" in p));
+assert.strictEqual(A.transformRequest({ n: "Autre" }), null);
+A.trackStart("ide"); A.trackStart("medecin"); A.trackMiss("ide", 3); A.trackLevel("ide", "Expert"); A.trackEnd("ide"); A.trackQuit("medecin"); A.trackAttestation();
+assert.deepStrictEqual(calls, ["BC Jeu démarré", "BC IDE démarré", "BC Médecin démarré", "BC IDE Q04 à revoir", "BC IDE niveau Expert", "BC IDE terminé", "BC Médecin abandonné", "BC Attestation imprimée"]);
+for (const c of calls) assert.ok(goals.includes(c));
+calls.length = 0; A.setTeachingEnabled(false);
+A.trackMiss("ide", 0); A.trackLevel("ide", "Expert"); A.trackEnd("ide");
+assert.deepStrictEqual(calls, ["BC IDE terminé"]);
+assert.strictEqual(A.transformRequest({ n: "BC IDE Q01 à revoir" }), null);
+ctx.window.plausible = () => { throw Error("bloqué"); }; A.setTeachingEnabled(true); A.trackEnd("ide");
+console.log("OK : 54 objectifs, nettoyage et désactivation vérifiés.");

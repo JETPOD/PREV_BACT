@@ -475,6 +475,7 @@ function startGame(trackKey) {
   state.answers = [];
   const track = QUESTIONS[trackKey];
   $('q-total').textContent = track.questions.length;
+  window.bcAnalytics?.trackStart(trackKey);
   renderQuestion();
   showScreen('screen-game');
 }
@@ -565,6 +566,7 @@ function selectOption(btn, originalIndex) {
     // Mauvaise réponse : marquer, désactiver cette option, permettre un nouvel essai
     btn.classList.add('wrong');
     btn.disabled = true;
+    if (!state.attempted) window.bcAnalytics?.trackMiss(state.track, state.qIndex);
     state.attempted = true;
     state.streak = 0;
 
@@ -614,6 +616,7 @@ function nextQuestion() {
 // Bouton quitter
 function quitGame() {
   if (confirm('Quitter ce parcours ? Votre progression sera perdue.')) {
+    window.bcAnalytics?.trackQuit(state.track);
     showScreen('screen-home');
   }
 }
@@ -666,6 +669,11 @@ function showResults() {
   }
 
   $('result-level').textContent = level;
+
+  // Mesure agrégée : achèvement et palier, jamais le score exact
+  const levelKey = pct < 50 ? 'En apprentissage' : pct < 70 ? 'Bon niveau' : pct < 90 ? 'Excellent' : 'Expert';
+  window.bcAnalytics?.trackEnd(state.track);
+  window.bcAnalytics?.trackLevel(state.track, levelKey);
   $('trophy').textContent = trophy;
 
   const list = $('takeaway-list');
@@ -739,6 +747,7 @@ function printAttestation() {
   const name = $('att-name').value.trim();
   $('att-doc-name').textContent = name || 'Le / la participant(e)';
   // Petit délai pour rendre le DOM avant impression
+  window.bcAnalytics?.trackAttestation();
   setTimeout(() => window.print(), 100);
 }
 
@@ -750,6 +759,11 @@ function initEvents() {
   $('btn-home').addEventListener('click', () => showScreen('screen-home'));
   $('btn-attestation').addEventListener('click', openAttestation);
   $('btn-print-attestation').addEventListener('click', printAttestation);
+  const teachingBox = $('teaching-analytics');
+  if (teachingBox) teachingBox.addEventListener('change', () => {
+    window.bcAnalytics?.setTeachingEnabled(teachingBox.checked);
+    $('teaching-status').textContent = teachingBox.checked ? 'Suivi pédagogique activé.' : 'Suivi pédagogique désactivé.';
+  });
 }
 
 // =============== BOOT ===============

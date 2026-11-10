@@ -1,0 +1,54 @@
+BC Jeu démarré
+BC IDE démarré
+BC IDE terminé
+BC IDE abandonné
+BC Médecin démarré
+BC Médecin terminé
+BC Médecin abandonné
+BC Nouveaux arrivants démarré
+BC Nouveaux arrivants terminé
+BC Nouveaux arrivants abandonné
+BC Attestation imprimée
+BC IDE niveau En apprentissage
+BC IDE niveau Bon niveau
+BC IDE niveau Excellent
+BC IDE niveau Expert
+BC Médecin niveau En apprentissage
+BC Médecin niveau Bon niveau
+BC Médecin niveau Excellent
+BC Médecin niveau Expert
+BC Nouveaux arrivants niveau En apprentissage
+BC Nouveaux arrivants niveau Bon niveau
+BC Nouveaux arrivants niveau Excellent
+BC Nouveaux arrivants niveau Expert
+BC IDE Q01 à revoir
+BC IDE Q02 à revoir
+BC IDE Q03 à revoir
+BC IDE Q04 à revoir
+BC IDE Q05 à revoir
+BC IDE Q06 à revoir
+BC IDE Q07 à revoir
+BC IDE Q08 à revoir
+BC IDE Q09 à revoir
+BC IDE Q10 à revoir
+BC IDE Q11 à revoir
+BC IDE Q12 à revoir
+BC Médecin Q01 à revoir
+BC Médecin Q02 à revoir
+BC Médecin Q03 à revoir
+BC Médecin Q04 à revoir
+BC Médecin Q05 à revoir
+BC Médecin Q06 à revoir
+BC Médecin Q07 à revoir
+BC Médecin Q08 à revoir
+BC Médecin Q09 à revoir
+BC Médecin Q10 à revoir
+BC Nouveaux arrivants Q01 à revoir
+BC Nouveaux arrivants Q02 à revoir
+BC Nouveaux arrivants Q03 à revoir
+BC Nouveaux arrivants Q04 à revoir
+BC Nouveaux arrivants Q05 à revoir
+BC Nouveaux arrivants Q06 à revoir
+BC Nouveaux arrivants Q07 à revoir
+BC Nouveaux arrivants Q08 à revoir
+BC Nouveaux arrivants Q09 à revoir

@@ -48,8 +48,14 @@ python3 -m http.server 8000
 
 ### Hébergement en intranet
 
-Copiez les 3 fichiers (`index.html`, `styles.css`, `game.js`) sur n'importe quel serveur web statique.
-Aucun backend, aucune base de données, aucun cookie, aucun `localStorage` — 100 % anonyme et RGPD-friendly.
+Copiez les fichiers `index.html`, `styles.css`, `game.js` et `analytics.js` sur n'importe quel serveur web statique.
+Aucun backend, aucune base de données, aucun cookie, aucun `localStorage`. Les copies intranet n'envoient aucune statistique.
+
+## 📊 Statistiques Plausible
+
+La version publique (`jetpod.github.io/PREV_BACT/`) mesure, sans cookie ni identifiant, les parcours démarrés, terminés et abandonnés, les attestations imprimées, le niveau atteint (4 paliers) et les questions manquées au premier essai. Aucun nom, aucune réponse cochée ni aucun score exact n'est transmis ; le joueur peut désactiver le suivi pédagogique dans le règlement.
+
+Les 54 objectifs à créer dans Plausible sont listés dans [GOALS.txt](GOALS.txt) ; le mode d'emploi et les indicateurs sont décrits dans [ANALYTICS.md](ANALYTICS.md). Test local : `node test-analytics.cjs`.
 
 ## 📁 Structure
 
@@ -57,7 +63,11 @@ Aucun backend, aucune base de données, aucun cookie, aucun `localStorage` — 1
 PREV_BACT/
 ├── index.html      # Structure SPA (home / jeu / résultats) + dialogs
 ├── styles.css      # Charte teal + print stylesheet A4
-├── game.js         # Logique + banque des 32 questions sourcées
+├── game.js         # Logique + banque des 31 questions sourcées
+├── analytics.js    # Mesure Plausible agrégée (liste fermée d'événements)
+├── ANALYTICS.md    # Configuration Plausible et lecture des indicateurs
+├── GOALS.txt       # 54 objectifs à créer dans Plausible
+├── test-analytics.cjs
 └── README.md
 ```
 
@@ -92,4 +102,4 @@ Suggestions bienvenues via **Issues** : ajout de questions, correction de source
 
 ---
 
-_Prototype v1.0 — juillet 2026 · Dr Jean-Etienne Podik · EOH / CLIN_
+_Prototype v1.1 · novembre 2026 · Dr Jean-Etienne Podik · EOH / CLIN_

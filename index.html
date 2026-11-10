@@ -8,6 +8,26 @@
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<!-- Mesure d'audience Plausible, sans cookie ni identifiant persistant.
+     Le script ne se charge que sur le site public GitHub Pages (/PREV_BACT/) :
+     les copies intranet, prévisualisations et tests locaux ne sont pas comptabilisés. -->
+<script src="analytics.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)};
+  plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init({
+    outboundLinks:false,
+    fileDownloads:false,
+    formSubmissions:false,
+    transformRequest:window.bcAnalytics&&window.bcAnalytics.transformRequest
+  });
+  if(location.hostname==="jetpod.github.io"&&location.pathname.startsWith("/PREV_BACT/")){
+    const analyticsScript=document.createElement("script");
+    analyticsScript.async=true;
+    analyticsScript.src="https://plausible.io/js/pa-tStNr5ifi5Ciowo1JXWCY.js";
+    document.head.appendChild(analyticsScript);
+  }
+</script>
 </head>
 <body>
 
@@ -149,7 +169,7 @@
 </main>
 
 <footer class="site-footer">
-  Équipe Opérationnelle d'Hygiène · Prototype pédagogique v1.0 — juillet 2026
+  Équipe Opérationnelle d'Hygiène · Prototype pédagogique v1.1 · novembre 2026
 </footer>
 
 <!-- ============= DIALOG RULES ============= -->
@@ -162,8 +182,12 @@
     <li>Une explication et une source vous sont données après chaque réponse.</li>
     <li>À la fin, un bilan par thématique met en évidence les points à retravailler.</li>
     <li>Une attestation nominative imprimable est proposée en fin de parcours.</li>
-    <li>Approche <strong>non nominative et bienveillante</strong> — aucun score n'est transmis à des tiers.</li>
+    <li>Approche <strong>non nominative et bienveillante</strong> : votre nom et votre score exact ne sont jamais transmis.</li>
   </ul>
+  <h3>Statistiques agrégées</h3>
+  <p>Le site public utilise Plausible, sans cookie ni identifiant persistant, pour compter les parcours démarrés, terminés ou abandonnés et les attestations imprimées. Le suivi pédagogique compte aussi, par parcours, le niveau atteint (quatre paliers) et les questions manquées au premier essai, pour aider l'EOH à cibler les messages. Aucun nom, aucune réponse cochée, aucun score exact ni aucun identifiant n'est transmis. Les copies installées en intranet n'envoient rien. <a href="https://plausible.io/data-policy" target="_blank" rel="noopener noreferrer">Politique de données de Plausible</a></p>
+  <p><label><input type="checkbox" id="teaching-analytics" checked> Partager mes indicateurs pédagogiques agrégés</label></p>
+  <p id="teaching-status" role="status">Suivi pédagogique activé.</p>
   <div class="dlg-actions">
     <button class="btn-primary" data-close-dlg>J'ai compris</button>
   </div>
