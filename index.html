@@ -193,46 +193,9 @@
   </div>
 </dialog>
 
-<!-- ============= ATTESTATION MODAL ============= -->
-<dialog id="dlg-attestation" class="dlg attestation-dlg">
-  <button class="dlg-close" data-close-dlg aria-label="Fermer">✕</button>
-  <div class="attestation-form no-print">
-    <h2>Attestation de participation</h2>
-    <label for="att-name">Votre nom (optionnel)</label>
-    <input type="text" id="att-name" placeholder="Ex. Julie Martin, IDE" maxlength="80">
-    <div class="dlg-actions">
-      <button class="btn-ghost" data-close-dlg>Annuler</button>
-      <button class="btn-primary" id="btn-print-attestation">Imprimer / PDF</button>
-    </div>
-  </div>
 
-  <div class="attestation-doc" id="attestation-doc">
-    <div class="att-header">
-      <svg viewBox="0 0 40 40" width="48" height="48" aria-hidden="true">
-        <circle cx="20" cy="20" r="18" fill="none" stroke="#01696F" stroke-width="2"/>
-        <path d="M12 20 L18 26 L28 14" fill="none" stroke="#01696F" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-      <div>
-        <div class="att-brand">Bactério Challenge</div>
-        <div class="att-sub">Équipe Opérationnelle d'Hygiène · CLIN</div>
-      </div>
-    </div>
-    <h1 class="att-title">Attestation de participation</h1>
-    <p class="att-lead">Il est attesté que</p>
-    <p class="att-name" id="att-doc-name">—</p>
-    <p class="att-body">
-      a suivi avec succès le module de serious game
-      <strong>« Bactério Challenge — <span id="att-track">—</span> »</strong>.
-    </p>
-    <div class="att-score-block">
-      <div><span class="att-lbl">Score</span><br><span class="att-big" id="att-score">—</span></div>
-      <div><span class="att-lbl">Niveau</span><br><span class="att-big" id="att-level">—</span></div>
-      <div><span class="att-lbl">Date</span><br><span class="att-big" id="att-date">—</span></div>
-    </div>
-    <p class="att-signature">Fait à LIÉVIN<br><strong>Dr Jean-Etienne PODIK</strong><br>Médecin hygiéniste pour le groupe AHNAC</p>
-  </div>
-</dialog>
 
+<script src="attestation.js"></script>
 <script src="game.js"></script>
 </body>
 </html>

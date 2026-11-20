@@ -721,34 +721,11 @@ function showResults() {
 function openAttestation() {
   const track = QUESTIONS[state.track];
   const maxScore = track.questions.length * 15;
-  const pct = Math.round((state.score / maxScore) * 100);
-
-  $('att-track').textContent = track.name;
-  $('att-score').textContent = `${state.score} / ${maxScore} · ${pct} %`;
-
-  let levelShort;
-  if (pct < 50) levelShort = 'En apprentissage';
-  else if (pct < 70) levelShort = 'Bon niveau';
-  else if (pct < 90) levelShort = 'Excellent';
-  else levelShort = 'Expert EOH';
-  $('att-level').textContent = levelShort;
-
-  const now = new Date();
-  const d = now.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
-  $('att-date').textContent = d;
-
-  $('att-name').value = '';
-  $('att-doc-name').textContent = '—';
-
-  $('dlg-attestation').showModal();
-}
-
-function printAttestation() {
-  const name = $('att-name').value.trim();
-  $('att-doc-name').textContent = name || 'Le / la participant(e)';
-  // Petit délai pour rendre le DOM avant impression
-  window.bcAnalytics?.trackAttestation();
-  setTimeout(() => window.print(), 100);
+  window.SGAttestation && window.SGAttestation.open({
+    jeu: 'Bactério Challenge', module: `parcours ${track.name.replace(/\s*—\s*/g, ' : ')}`, code: 'BC', color: '#01696F',
+    ratio: state.score / maxScore, critical: null,
+    track: (n) => { window.bcAnalytics?.trackAttestation(n); }
+  });
 }
 
 // =============== NAVIGATION ===============
@@ -758,7 +735,6 @@ function initEvents() {
   $('btn-replay').addEventListener('click', () => startGame(state.track));
   $('btn-home').addEventListener('click', () => showScreen('screen-home'));
   $('btn-attestation').addEventListener('click', openAttestation);
-  $('btn-print-attestation').addEventListener('click', printAttestation);
   const teachingBox = $('teaching-analytics');
   if (teachingBox) teachingBox.addEventListener('change', () => {
     window.bcAnalytics?.setTeachingEnabled(teachingBox.checked);

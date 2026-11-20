@@ -612,106 +612,11 @@ body {
   margin-top: 16px;
 }
 
-/* ==================== ATTESTATION ==================== */
-.attestation-dlg { max-width: 680px; }
-.attestation-form label {
-  display: block;
-  font-size: 13px;
-  color: var(--ink-mute);
-  margin-top: 12px;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-.attestation-form input {
-  width: 100%;
-  padding: 10px 14px;
-  border: 1.5px solid var(--border);
-  border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: 15px;
-  color: var(--ink);
-}
-.attestation-form input:focus {
-  outline: none;
-  border-color: var(--teal);
-  box-shadow: 0 0 0 3px var(--teal-l);
-}
-
-.attestation-doc {
-  display: none;
-  padding: 40px;
-  background: white;
-  color: var(--ink);
-}
-.att-header {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  border-bottom: 3px solid var(--teal);
-  padding-bottom: 16px;
-  margin-bottom: 28px;
-}
-.att-brand {
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--teal-d);
-  letter-spacing: -0.01em;
-}
-.att-sub { font-size: 12px; color: var(--ink-mute); letter-spacing: 0.03em; }
-.att-title {
-  font-size: 28px;
-  color: var(--teal-d);
-  text-align: center;
-  margin-bottom: 28px;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-}
-.att-lead { text-align: center; font-size: 14px; color: var(--ink-mute); margin-bottom: 8px; }
-.att-name {
-  text-align: center;
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--teal);
-  margin-bottom: 20px;
-  border-bottom: 1px dotted var(--border);
-  padding-bottom: 12px;
-}
-.att-body {
-  font-size: 15px;
-  line-height: 1.6;
-  margin-bottom: 32px;
-  text-align: center;
-}
-.att-score-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 16px;
-  padding: 20px;
-  background: var(--teal-l);
-  border-radius: var(--radius-sm);
-  margin-bottom: 32px;
-  text-align: center;
-}
-.att-lbl { font-size: 11px; color: var(--ink-mute); text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; }
-.att-big { font-size: 18px; font-weight: 700; color: var(--teal-d); }
-.att-signature {
-  text-align: right;
-  font-size: 13px;
-  color: var(--ink-mute);
-  font-style: italic;
-  margin-top: 40px;
-  padding-top: 40px;
-  border-top: 1px solid var(--border-l);
-}
+/* Attestation : module commun attestation.js */
 
 /* ==================== PRINT ==================== */
 @media print {
-  body > *, .dlg > * { display: none !important; }
-  #dlg-attestation { display: block !important; position: static; }
-  #dlg-attestation .attestation-doc { display: block !important; }
-  #dlg-attestation .no-print { display: none !important; }
-  .dlg-close { display: none !important; }
-  @page { size: A4; margin: 20mm; }
+  .site-header, .dlg, .no-print { display: none !important; }
 }
 
 /* ==================== RESPONSIVE ==================== */

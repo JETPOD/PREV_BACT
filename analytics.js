@@ -5,7 +5,7 @@
   const TRACKS = { ide: "IDE", medecin: "Médecin", nouveau: "Nouveaux arrivants" };
   const LEVELS = ["En apprentissage", "Bon niveau", "Excellent", "Expert"];
   const T = "(IDE|Médecin|Nouveaux arrivants)";
-  const base = new RegExp(`^(pageview|engagement|BC Jeu démarré|BC Attestation imprimée|BC ${T} (démarré|terminé|abandonné))$`);
+  const base = new RegExp(`^(pageview|engagement|BC Jeu démarré|BC Attestation imprimée|Attestation · (Participation|Réussite|Excellence)|BC ${T} (démarré|terminé|abandonné))$`);
   const teaching = new RegExp(`^BC ${T} (niveau (En apprentissage|Bon niveau|Excellent|Expert)|Q(0[1-9]|1[0-2]) à revoir)$`);
   let enabled = true;
   let started = false;
@@ -33,7 +33,7 @@
     },
     trackEnd(track) { if (TRACKS[track]) send(`BC ${TRACKS[track]} terminé`); },
     trackQuit(track) { if (TRACKS[track]) send(`BC ${TRACKS[track]} abandonné`); },
-    trackAttestation() { send("BC Attestation imprimée"); },
+    trackAttestation(palier) { send("BC Attestation imprimée"); if (/^Attestation · (Participation|Réussite|Excellence)$/.test(palier || "")) send(palier); },
     trackLevel(track, level) {
       const name = `BC ${TRACKS[track]} niveau ${level}`;
       if (enabled && teaching.test(name)) send(name);

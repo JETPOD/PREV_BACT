@@ -26,7 +26,7 @@ Chaque question s'appuie sur un **scénario clinique**, propose 3 à 4 options, 
 - **Streak** visible dès 3 bonnes réponses consécutives.
 - **Feedback bienveillant** avec source scientifique à chaque question.
 - **Écran de résultats** : trophée par palier (🌱 / 🎯 / 🏆 / ⭐), bilan par thématique avec barres animées, 3 « ce que vous emportez » personnalisés.
-- **Attestation nominative** imprimable en PDF via le navigateur.
+- **Attestation nominative** imprimable en PDF (module commun `attestation.js`) : palier seul (Participation, Réussite à partir de 80 %, Réussite avec excellence à partir de 95 %), signée Dr Jean-Etienne Podik, EOH AHNAC.
 
 ## 🚀 Utilisation
 
